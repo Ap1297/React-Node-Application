@@ -1,5 +1,5 @@
 import express from "express";
-
+import config from "./config";
 const server = express()
 
 server.use(express.static("dist"));
@@ -7,12 +7,13 @@ server.use(express.static("dist"));
 server.set("view engine","ejs");
 
 
+
 server.use("/", (req,res) => {
     res.render("index",{
-        contents : "Hello Ankit!!"
+        contents : "<B>Hello Ankit!!<B>"
     });
 });
 
-server.listen("8080","localhost", () => {
-    console.info("Express server started on http://localhost:8080");
+server.listen(config.PORT,config.HOST, () => {
+    console.info(`Express server started on ${config.SERVER_URL}`);
 })
