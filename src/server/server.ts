@@ -10,7 +10,7 @@ server.set("view engine","ejs");
 
 server.use("/", (req,res) => {
     res.render("index",{
-        contents : "<B>Hello Ankit!!<B>"
+        initialContent : "loading.."
     });
 });
 

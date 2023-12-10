@@ -4,9 +4,13 @@ export const PORT = env.PORT ?? 8080;
 export const HOST = env.HOST ?? "localhost";
 export const SERVER_URL = `http://${HOST}:${PORT}`;
 
-export const MONGO_URL = "mongodb+srv://dbUser:dbUser@cluster0.3flln.mongodb.net/NamingContest?retryWrites=true&w=majority";
+export const MONGO_URL = env.MONGODB_URI ?? "mongodb://localhost:27017";
+export const DB_NAME = env.DB_NAME ?? "local";
+
 export default {
     PORT,
     HOST,
     SERVER_URL,
+    MONGO_URL,
+    DB_NAME,
 };

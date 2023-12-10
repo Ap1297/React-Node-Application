@@ -1,0 +1,7 @@
+1)Start docker with mongodb:
+docker-compose up
+
+2)Click and connect mongodb from compass
+
+3)Run application :
+npm run dev:server
