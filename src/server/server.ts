@@ -11,7 +11,7 @@ server.set("view engine","ejs");
 server.use("/api", router);
 
 
-server.use("/", (req,res) => {
+server.get("/", (req,res) => {
     res.render("index",{
         initialContent : "loading.."
     });
