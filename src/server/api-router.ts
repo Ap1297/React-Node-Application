@@ -9,7 +9,7 @@ import testData from "../local.contests.json";
 router.get("/contests" , (req,res) => {
     //getting data from mongodb
 
-    res.send([testData]);
+    res.send({contests: testData});
 })
 
 
