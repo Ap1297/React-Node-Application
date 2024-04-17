@@ -10,9 +10,9 @@ const ContestList = ({initialContests}) => {
 
    useEffect(() =>{
     // fetch or axios to connect api server url
-fetchContests().then((data) => {
+fetchContests().then((contests) => {
     // state
-        setContests(data.contests);
+        setContests(contests);
     });
  });
 
