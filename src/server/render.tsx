@@ -5,9 +5,9 @@ const serverRender = async () => {
     //fetchContests
     const contests = await fetchContests();
    const initialMarkup =  ReactDOMServer.renderToString(
-        <App initialData={ { contests } } />
+        <App initialData={ { contests } } />,
     );
-    return {initialMarkup};
+    return {initialMarkup, initialData: { contests } };
 }
 
 export default serverRender;

@@ -5,16 +5,16 @@ import { fetchContests } from "../api-client";
 
 
 const ContestList = ({initialContests}) => {
-    
+   
     const [contests, setContests] = useState(initialContests)
 
    useEffect(() =>{
     // fetch or axios to connect api server url
-fetchContests().then((contests) => {
+/*fetchContests().then((contests) => {
     // state
         setContests(contests);
-    });
- });
+    });*/
+ },[]);
 
 
     return (<div className="contest-list">{contests.map((contest) => {

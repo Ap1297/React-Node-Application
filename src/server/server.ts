@@ -14,9 +14,10 @@ server.use("/api", router);
 
 server.get("/", async(req,res) => {
 
-    const {initialMarkup} = await serverRender();
+    const {initialMarkup,initialData} = await serverRender();
     res.render("index",{
          initialMarkup,
+         initialData,
     });
 });
  
