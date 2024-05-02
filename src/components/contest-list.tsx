@@ -1,7 +1,7 @@
 import axios from "axios";
 import ContestPreview from "./contest-preview";
 import { useEffect, useState } from "react";
-import { fetchContests } from "../api-client";
+import { fetchContestList } from "../api-client";
 
 const ContestList = ({ initialContests, onContestClick }) => {
   const [contests, setContests] = useState(initialContests);

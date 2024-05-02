@@ -7,7 +7,7 @@ const ContestPreview: React.FC<{
   const handleClick = (event) => {
     event.preventDefault();
     //Navigate to a new view
-    onClick();
+    onClick(contest.id);
   };
   return (
     <div className="contest-preview" onClick={handleClick}>
