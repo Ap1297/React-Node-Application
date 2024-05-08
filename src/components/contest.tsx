@@ -1,13 +1,13 @@
 import { fetchContests } from "../api-client";
 import { useEffect, useState } from "react";
-const Contest = ({ id }) => {
-  const [contest, setContest] = useState({});
+const Contest = ({ initialContest }) => {
+  const [contest, setContest] = useState(initialContest);
 
-  useEffect(() => {
-    fetchContests(id).then((contest) => {
+  /*useEffect(() => {
+    fetchContests(initialContest).then((contest) => {
       setContest(contest);
     });
-  });
+  });*/
   return (
     <div className="contest">
       <div className="title">Contest Description</div>

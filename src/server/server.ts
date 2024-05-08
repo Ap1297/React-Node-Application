@@ -12,9 +12,9 @@ server.set("view engine","ejs");
 server.use("/api", router);
 
 
-server.get("/", async(req,res) => {
+server.get(["/","/contest/:id"], async(req,res) => {
 
-    const {initialMarkup,initialData} = await serverRender();
+    const {initialMarkup,initialData} = await serverRender(req);
     res.render("index",{
          initialMarkup,
          initialData,

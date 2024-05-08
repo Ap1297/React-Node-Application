@@ -5,14 +5,26 @@ import { useState, useEffect } from "react";
 
 const App = ({ initialData }) => {
   const [page, setPage] = useState<"contestList" | "contest">(
-    "contestList",
+    initialData.currentContest ? "contest" : "contestList",
   );
-  const [currentContestId, setCurrentContestId] = useState<
-    String | undefined
-  >();
+  const [currentContest, setCurrentContestId] = useState<
+    object | undefined
+  >(initialData.CurrentContest);
+
+  useEffect(() => {
+    window.onpopstate = (event) => {
+      const newPage = event.state?.id
+        ? "contest"
+        : "contestList";
+      setPage(newPage);
+      setCurrentContestId({ id: event.state?.id });
+    };
+  }, []);
+
   const navigateToContest = (id) => {
+    window.history.pushState({ id }, "", `/contest/${id}`);
     setPage("contest");
-    setCurrentContestId(id);
+    setCurrentContestId({ id: id });
   };
 
   const pageContent = () => {
@@ -25,7 +37,7 @@ const App = ({ initialData }) => {
           />
         );
       case "contest":
-        return <Contest id={currentContestId} />;
+        return <Contest initialContest={currentContest} />;
     }
   };
 
