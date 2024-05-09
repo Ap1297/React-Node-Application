@@ -3,11 +3,17 @@ import { useEffect, useState } from "react";
 const Contest = ({ initialContest }) => {
   const [contest, setContest] = useState(initialContest);
 
-  /*useEffect(() => {
-    fetchContests(initialContest).then((contest) => {
-      setContest(contest);
-    });
-  });*/
+  useEffect(
+    () => {
+      if (!contest.names) {
+        fetchContests(contest.id).then((contest) => {
+          setContest(contest);
+        });
+      }
+    },
+    contest.id,
+    contest.names,
+  );
   return (
     <div className="contest">
       <div className="title">Contest Description</div>
