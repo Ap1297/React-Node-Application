@@ -27,6 +27,12 @@ const App = ({ initialData }) => {
     setCurrentContestId({ id: id });
   };
 
+  const navigateToContestList = (id) => {
+    window.history.pushState({}, "", `/`);
+    setPage("contestList");
+    setCurrentContestId(undefined);
+  };
+
   const pageContent = () => {
     switch (page) {
       case "contestList":
@@ -37,7 +43,12 @@ const App = ({ initialData }) => {
           />
         );
       case "contest":
-        return <Contest initialContest={currentContest} />;
+        return (
+          <Contest
+            initialContest={currentContest}
+            onContestListClick={navigateToContestList}
+          />
+        );
     }
   };
 

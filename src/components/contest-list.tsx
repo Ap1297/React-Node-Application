@@ -4,15 +4,19 @@ import { useEffect, useState } from "react";
 import { fetchContestList } from "../api-client";
 
 const ContestList = ({ initialContests, onContestClick }) => {
-  const [contests, setContests] = useState(initialContests);
+  const [contests, setContests] = useState(
+    initialContests ?? [],
+  );
 
   useEffect(() => {
-    // fetch or axios to connect api server url
-    /*fetchContests().then((contests) => {
-    // state
+    if (!initialContests) {
+      // fetch or axios to connect api server url
+      fetchContestList().then((contests) => {
+        // state
         setContests(contests);
-    });*/
-  }, []);
+      });
+    }
+  }, [initialContests]);
 
   return (
     <div className="contest-list">
